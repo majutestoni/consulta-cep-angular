@@ -17,56 +17,103 @@
   <div id="order-form-container" class="container px-md-0">
     <div id="steps" class="mb-md-3 pb-md-3">
       <div class="line"></div>
-      <div class="step"></div>
+      <div class="step">
+        <i class="bi bi-person active"></i>
+        <p class="d-none d-md-block">Criação de conta</p>
+      </div>
+      <div class="step">
+        <i class="bi bi-geo-alt active"></i>
+        <p class="d-none d-md-block">Endereço</p>
+      </div>
+      <div class="step">
+        <i class="bi bi-credit-card"></i>
+        <p class="d-none d-md-block">Pagamento</p>
+      </div>
     </div>
+
+    <div class="form-header">
+      <h2>Cadastre seu endereço</h2>
+      <p>Preencha os campos para podermos enviar seus produtos</p>
+    </div>
+    <form #f="ngForm" class="address-form">
+        <div class="form-floating">
+          <input
+            class="form-control shadow-none"
+            placeholder="Digite o seu cep..."
+            minlength="8"
+            maxlength="8"
+            type="text"
+            id="cep"
+            name="cep"
+            ngModel
+            #cep="ngModel"
+            (blur)="consultaCep($event.target.value, f)"
+          />
+          <label for="cep">Cep</label>
+        </div>
+      <div class="row mb-3">
+        <div class="form-floating col-12 col-sm-6 mb-3 mb-sm-0">
+          <input
+          class="form-control shadow-none"
+          type="text"
+          id="logradouro"
+          name="logradouro"
+          ngModel
+          #logradouro="ngModel"
+          disabled
+          />
+          <label for="logradouro">Logradouro</label>
+        </div>
+        <div class="form-floating col-12 col-sm-6">
+          <input
+          type="text"
+          id="bairro"
+          name="bairro"
+          ngModel
+          #bairro="ngModel"
+          disabled
+          />
+          <label for="bairro">Bairro</label>
+        </div>
+      </div>
+
+
+
+      <div class="row mb-3">
+        <div class="form-floating col-12 col-sm-6">
+          <input
+          type="text"
+          id="complemento"
+          name="complemento"
+          />
+          <label for="complemento">Complemento</label>
+        </div>
+        <div class="form-floating col-12 col-sm-6">
+          <label for="cidade">cidade</label>
+          <input
+            type="text"
+            id="cidade"
+            name="cidade"
+            ngModel
+            #cidade="ngModel"
+          />
+        </div>
+        <div class="form-floating col-12 col-sm-6">
+          <label for="uf">uf</label>
+          <input
+            type="text"
+            id="uf"
+            name="uf"
+            ngModel
+            #uf="ngModel"
+            disabled
+          />
+      </div>
+      </div>
+
+
+
+
+    </form>
   </div>
-  <form #f="ngForm">
-    <br /><br />
-    <label for="cep">Cep</label>
-    <input
-      type="text"
-      id="cep"
-      name="cep"
-      ngModel
-      #cep="ngModel"
-      (blur)="consultaCep($event.target.value, f)"
-    />
-
-    <br /><br />
-    <label for="logradouro">logradouro</label>
-    <input
-      type="text"
-      id="logradouro"
-      name="logradouro"
-      ngModel
-      #logradouro="ngModel"
-      disabled
-    />
-
-    <br /><br />
-    <label for="bairro">bairro</label>
-    <input
-      type="text"
-      id="bairro"
-      name="bairro"
-      ngModel
-      #bairro="ngModel"
-      disabled
-    />
-
-    <br /><br />
-    <label for="cidade">cidade</label>
-    <input
-      type="text"
-      id="cidade"
-      name="cidade"
-      ngModel
-      #cidade="ngModel"
-      disabled
-    />
-
-    <br /><br />
-    <label for="uf">uf</label>
-    <input type="text" id="uf" name="uf" ngModel #uf="ngModel" disabled />
-  </form>
 </body>
