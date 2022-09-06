@@ -1,49 +1,72 @@
-<form #f="ngForm">
-  <br /><br />
-  <label for="cep">Cep</label>
-  <input
-    type="text"
-    id="cep"
-    name="cep"
-    ngModel
-    #cep="ngModel"
-    (blur)="consultaCep($event.target.value, f)"
-  />
+<body class="checkout-page">
+  <div id="fade" class="hide">
+    <div id="loader" class="spinner-border text-info hide" role="status">
+      <span class="visually-hidden">Loading...</span>
+    </div>
+    <div id="message" class="hide">
+      <div class="alert alert-light" role="alert">
+        <h4>Mensagem:</h4>
+        <p>Texto da mensagem...</p>
+        <button id="close-message" type="button" class="btn btn-secondary">
+          Fechar
+        </button>
+      </div>
+    </div>
+  </div>
 
-  <br /><br />
-  <label for="logradouro">logradouro</label>
-  <input
-    type="text"
-    id="logradouro"
-    name="logradouro"
-    ngModel
-    #logradouro="ngModel"
-    disabled
-  />
+  <div id="order-form-container" class="container px-md-0">
+    <div id="steps" class="mb-md-3 pb-md-3">
+      <div class="line"></div>
+      <div class="step"></div>
+    </div>
+  </div>
+  <form #f="ngForm">
+    <br /><br />
+    <label for="cep">Cep</label>
+    <input
+      type="text"
+      id="cep"
+      name="cep"
+      ngModel
+      #cep="ngModel"
+      (blur)="consultaCep($event.target.value, f)"
+    />
 
-  <br /><br />
-  <label for="bairro">bairro</label>
-  <input
-    type="text"
-    id="bairro"
-    name="bairro"
-    ngModel
-    #bairro="ngModel"
-    disabled
-  />
+    <br /><br />
+    <label for="logradouro">logradouro</label>
+    <input
+      type="text"
+      id="logradouro"
+      name="logradouro"
+      ngModel
+      #logradouro="ngModel"
+      disabled
+    />
 
-  <br /><br />
-  <label for="cidade">cidade</label>
-  <input
-    type="text"
-    id="cidade"
-    name="cidade"
-    ngModel
-    #cidade="ngModel"
-    disabled
-  />
+    <br /><br />
+    <label for="bairro">bairro</label>
+    <input
+      type="text"
+      id="bairro"
+      name="bairro"
+      ngModel
+      #bairro="ngModel"
+      disabled
+    />
 
-  <br /><br />
-  <label for="uf">uf</label>
-  <input type="text" id="uf" name="uf" ngModel #uf="ngModel" disabled />
-</form>
+    <br /><br />
+    <label for="cidade">cidade</label>
+    <input
+      type="text"
+      id="cidade"
+      name="cidade"
+      ngModel
+      #cidade="ngModel"
+      disabled
+    />
+
+    <br /><br />
+    <label for="uf">uf</label>
+    <input type="text" id="uf" name="uf" ngModel #uf="ngModel" disabled />
+  </form>
+</body>
