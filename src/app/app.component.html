@@ -1,16 +1,14 @@
 <body class="checkout-page">
-  <div id="fade" class="hide">
-    <div id="loader" class="spinner-border text-info hide" role="status">
-      <span class="visually-hidden">Loading...</span>
-    </div>
-    <div id="message" class="hide">
-      <div class="alert alert-light" role="alert">
-        <h4>Mensagem:</h4>
-        <p>Texto da mensagem...</p>
-        <button id="close-message" type="button" class="btn btn-secondary">
-          Fechar
-        </button>
-      </div>
+  <div id="loader" class="spinner-border text-info hide" role="status">
+    <span class="visually-hidden">Loading...</span>
+  </div>
+  <div id="message" class="hide">
+    <div class="alert alert-light" role="alert">
+      <h4>Mensagem:</h4>
+      <p>Texto da mensagem...</p>
+      <button id="close-message" type="button" class="btn btn-secondary">
+        Fechar
+      </button>
     </div>
   </div>
 
@@ -36,12 +34,13 @@
       <p>Preencha os campos para podermos enviar seus produtos</p>
     </div>
     <form #f="ngForm" class="address-form">
+      <div class="row mb-3">
         <div class="form-floating">
           <input
             class="form-control shadow-none"
             placeholder="Digite o seu cep..."
-            minlength="8"
-            maxlength="8"
+            minlength="9"
+            maxlength="9"
             type="text"
             id="cep"
             name="cep"
@@ -49,58 +48,43 @@
             #cep="ngModel"
             (blur)="consultaCep($event.target.value, f)"
           />
-          <label for="cep">Cep</label>
+          <label for="cep">Digite o seu cep...</label>
         </div>
+      </div>
       <div class="row mb-3">
         <div class="form-floating col-12 col-sm-6 mb-3 mb-sm-0">
           <input
-          class="form-control shadow-none"
-          type="text"
-          id="logradouro"
-          name="logradouro"
-          ngModel
-          #logradouro="ngModel"
-          disabled
+            class="form-control shadow-none"
+            placeholder="Logradouro"
+            type="text"
+            id="logradouro"
+            name="logradouro"
+            ngModel
+            #logradouro="ngModel"
+            disabled
           />
           <label for="logradouro">Logradouro</label>
         </div>
-        <div class="form-floating col-12 col-sm-6">
+        <div class="form-floating col-12 col-sm-6 mb-3 mb-sm-0">
           <input
-          type="text"
-          id="bairro"
-          name="bairro"
-          ngModel
-          #bairro="ngModel"
-          disabled
+            class="form-control shadow-none"
+            placeholder="Bairro"
+            type="text"
+            id="bairro"
+            name="bairro"
+            ngModel
+            #bairro="ngModel"
+            disabled
           />
           <label for="bairro">Bairro</label>
         </div>
       </div>
 
-
-
       <div class="row mb-3">
-        <div class="form-floating col-12 col-sm-6">
+        <div class="form-floating col-12 col-sm-6 mb-3 mb-sm-0">
           <input
-          type="text"
-          id="complemento"
-          name="complemento"
-          />
-          <label for="complemento">Complemento</label>
-        </div>
-        <div class="form-floating col-12 col-sm-6">
-          <label for="cidade">cidade</label>
-          <input
-            type="text"
-            id="cidade"
-            name="cidade"
-            ngModel
-            #cidade="ngModel"
-          />
-        </div>
-        <div class="form-floating col-12 col-sm-6">
-          <label for="uf">uf</label>
-          <input
+            class="form-control shadow-none"
+            placeholder="UF"
             type="text"
             id="uf"
             name="uf"
@@ -108,12 +92,34 @@
             #uf="ngModel"
             disabled
           />
+          <label for="uf">UF</label>
+        </div>
+        <div class="form-floating col-12 col-sm-6 mb-3 mb-sm-0">
+          <input
+            class="form-control shadow-none"
+            placeholder="Cidade"
+            type="text"
+            id="cidade"
+            name="cidade"
+            ngModel
+            #cidade="ngModel"
+            disabled
+          />
+          <label for="cidade">Cidade</label>
+        </div>
+        <div class="complemento">
+          <div class="form-floating col-12 col-sm-13 mb-3 mb-sm-0">
+            <input
+              placeholder="Digite o complemento..."
+              class="form-control shadow-none"
+              type="text"
+              id="complemento"
+              name="complemento"
+            />
+            <label for="complemento">Digite o complemento...</label>
+          </div>
+        </div>
       </div>
-      </div>
-
-
-
-
     </form>
   </div>
 </body>
