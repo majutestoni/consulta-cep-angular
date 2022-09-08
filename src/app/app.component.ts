@@ -12,9 +12,11 @@ export class AppComponent {
   constructor(private cepService: CepServiceService) {}
 
   consultaCep(valor, form) {
-    this.cepService.buscar(valor).subscribe((dados) => {
-      this.populaForm(dados, form);
-    });
+    if (valor !== '') {
+      this.cepService.buscar(valor).subscribe((dados) => {
+        this.populaForm(dados, form);
+      });
+    }
   }
 
   populaForm(dados, form) {
